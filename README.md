@@ -5,23 +5,63 @@ Built on `aiohttp` + `asyncio`. Every scan phase runs concurrently, every outbou
 
 ## Requirements
 
-- Python **3.9+**
-- pip packages: `aiohttp`, `aiofiles`, `packaging`, `requests`
+- **Python 3.9+**
+- pip packages: `aiohttp`, `aiosqlite`, `pyyaml` (optional — enables YAML templates)
+
+No API keys. No external services required for basic scanning.
 
 ---
 
 ## Installation
 
-```bash
-# 1. Clone
+### Windows
+
+**Option A — Installer (recommended, double-click)**
+
+```
+1. Download or clone the repo
+2. Double-click  install.bat
+3. Open a NEW terminal — run:  wphawk -u https://target.com
+```
+
+The installer automatically:
+- Finds your Python 3.9+ installation
+- Installs `aiohttp`, `aiosqlite`, `pyyaml` via pip
+- Creates a `wphawk.bat` shim in your Python Scripts directory (or `%USERPROFILE%\.local\bin`)
+- Adds the shim directory to your user PATH if needed
+
+**Option B — PowerShell manually**
+
+```powershell
 git clone https://github.com/yourusername/wphawk.git
 cd wphawk
+powershell -ExecutionPolicy Bypass -File install.ps1
+```
 
-# 2. Install dependencies
-pip install aiohttp aiofiles packaging requests
+**Option C — Run directly without installing**
 
-# 3. Run
-python wphawk.py -u https://target.com
+```powershell
+git clone https://github.com/yourusername/wphawk.git
+cd wphawk
+& "C:\Users\<you>\AppData\Local\Programs\Python\Python313\python.exe" -m pip install aiohttp aiosqlite pyyaml
+& "C:\Users\<you>\AppData\Local\Programs\Python\Python313\python.exe" wphawk.py -u https://target.com
+```
+
+> **Windows note:** If `python` opens the Microsoft Store instead of running Python, this is the App Execution Alias conflict. Use the full path to `python.exe` as shown above, or run `install.ps1` which detects and uses the real executable automatically.
+
+---
+
+### Linux / macOS
+
+**Option A — Installer (recommended)**
+
+```bash
+git clone https://github.com/yourusername/wphawk.git
+cd wphawk
+chmod +x install.sh
+./install.sh
+# Open a new terminal, then:
+wphawk -u https://target.com
 ```
 
 No virtual environment required, but recommended for clean installs:
@@ -33,6 +73,66 @@ venv\Scripts\activate          # Windows
 
 pip install aiohttp aiofiles packaging requests
 python wphawk.py -u https://target.com
+```
+## Requirements
+
+- **Python 3.9+**
+- pip packages: `aiohttp`, `aiosqlite`, `pyyaml` (optional — enables YAML templates)
+
+No API keys. No external services required for basic scanning.
+
+---
+
+## Installation
+
+### Windows
+
+**Option A — Installer (recommended, double-click)**
+
+```
+1. Download or clone the repo
+2. Double-click  install.bat
+3. Open a NEW terminal — run:  wphawk -u https://target.com
+```
+
+The installer automatically:
+- Finds your Python 3.9+ installation
+- Installs `aiohttp`, `aiosqlite`, `pyyaml` via pip
+- Creates a `wphawk.bat` shim in your Python Scripts directory (or `%USERPROFILE%\.local\bin`)
+- Adds the shim directory to your user PATH if needed
+
+**Option B — PowerShell manually**
+
+```powershell
+git clone https://github.com/yourusername/wphawk.git
+cd wphawk
+powershell -ExecutionPolicy Bypass -File install.ps1
+```
+
+**Option C — Run directly without installing**
+
+```powershell
+git clone https://github.com/yourusername/wphawk.git
+cd wphawk
+& "C:\Users\<you>\AppData\Local\Programs\Python\Python313\python.exe" -m pip install aiohttp aiosqlite pyyaml
+& "C:\Users\<you>\AppData\Local\Programs\Python\Python313\python.exe" wphawk.py -u https://target.com
+```
+
+> **Windows note:** If `python` opens the Microsoft Store instead of running Python, this is the App Execution Alias conflict. Use the full path to `python.exe` as shown above, or run `install.ps1` which detects and uses the real executable automatically.
+
+---
+
+### Linux / macOS
+
+**Option A — Installer (recommended)**
+
+```bash
+git clone https://github.com/yourusername/wphawk.git
+cd wphawk
+chmod +x install.sh
+./install.sh
+# Open a new terminal, then:
+wphawk -u https://target.com
 ```
 
 ---
