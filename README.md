@@ -1,33 +1,7 @@
 # WPHawk
 
-> Asynchronous WordPress penetration testing framework — faster and more thorough than WPScan.
-
 Built on `aiohttp` + `asyncio`. Every scan phase runs concurrently, every outbound request is rate-limited, and the entire result lands in your terminal with full ANSI color — no mandatory file writes.
 
----
-
-## Features
-
-| Category | What it does |
-|---|---|
-| **Fingerprinting** | WordPress version (6 sources), server stack, PHP, WAF detection, multisite, custom login URL |
-| **Plugin / Theme enum** | Passive (HTML source) + aggressive HTTP probing, version from `readme.txt / readme.md / changelog.txt / CHANGELOG.md / index.html / slug.php` |
-| **CVE matching** | NVD + GitHub Advisory + Patchstack + Exploit-DB, version-aware (flags only unpatched), 30+ built-in CVEs |
-| **CVE template engine** | Nuclei-style `.json` templates in `cve/` — custom HTTP matchers, DSL expressions, regex, status checks |
-| **User enumeration** | REST API (`/wp-json/wp/v2/users`), author redirect probing, login-error confirmation |
-| **Deep recon** | JS secret scanning, REST API route discovery, `robots.txt`, `sitemap.xml`, subdomain enum via crt.sh |
-| **Upload crawler** | Traverses `wp-content/uploads/` year/month structure + plugin-specific dirs, flags exposed SQL dumps / archives / keys |
-| **Drop-in files** | Detects `db.php`, `object-cache.php`, `advanced-cache.php` — common backdoor persistence points |
-| **MU-Plugins** | Scans `wp-content/mu-plugins/` for exposed PHP files and open directory listings |
-| **GraphQL** | Detects WPGraphQL introspection, dumps exposed type list |
-| **Security headers** | CSP, HSTS, X-Frame-Options, Referrer-Policy, Permissions-Policy |
-| **Misc checks** | Open registration, directory listing, wp-cron exposure, debug.log, XML-RPC + multicall, backup files, TimThumb, dangerous HTTP methods |
-| **Exploitation** | Auto-exploit CVEs, SSRF, XSS, Host Header injection, wp-config leak |
-| **Brute force** | XML-RPC multicall (amplified) + wp-login.php serial, custom password wordlist |
-| **Rate limiting** | Token-bucket limiter (`--rps`) — every request in every phase goes through it. No accidental DoS. |
-| **Output** | Terminal-first (ANSI color). Optional `--json` / `--html` (self-contained dark-theme report). |
-
----
 
 ## Requirements
 
@@ -243,6 +217,31 @@ Output
   --output               Custom .txt report path
   -v, --verbose          Show all probes, not just hits
 ```
+
+---
+
+## Features
+
+| Category | What it does |
+|---|---|
+| **Fingerprinting** | WordPress version (6 sources), server stack, PHP, WAF detection, multisite, custom login URL |
+| **Plugin / Theme enum** | Passive (HTML source) + aggressive HTTP probing, version from `readme.txt / readme.md / changelog.txt / CHANGELOG.md / index.html / slug.php` |
+| **CVE matching** | NVD + GitHub Advisory + Patchstack + Exploit-DB, version-aware (flags only unpatched), 30+ built-in CVEs |
+| **CVE template engine** | Nuclei-style `.json` templates in `cve/` — custom HTTP matchers, DSL expressions, regex, status checks |
+| **User enumeration** | REST API (`/wp-json/wp/v2/users`), author redirect probing, login-error confirmation |
+| **Deep recon** | JS secret scanning, REST API route discovery, `robots.txt`, `sitemap.xml`, subdomain enum via crt.sh |
+| **Upload crawler** | Traverses `wp-content/uploads/` year/month structure + plugin-specific dirs, flags exposed SQL dumps / archives / keys |
+| **Drop-in files** | Detects `db.php`, `object-cache.php`, `advanced-cache.php` — common backdoor persistence points |
+| **MU-Plugins** | Scans `wp-content/mu-plugins/` for exposed PHP files and open directory listings |
+| **GraphQL** | Detects WPGraphQL introspection, dumps exposed type list |
+| **Security headers** | CSP, HSTS, X-Frame-Options, Referrer-Policy, Permissions-Policy |
+| **Misc checks** | Open registration, directory listing, wp-cron exposure, debug.log, XML-RPC + multicall, backup files, TimThumb, dangerous HTTP methods |
+| **Exploitation** | Auto-exploit CVEs, SSRF, XSS, Host Header injection, wp-config leak |
+| **Brute force** | XML-RPC multicall (amplified) + wp-login.php serial, custom password wordlist |
+| **Rate limiting** | Token-bucket limiter (`--rps`) — every request in every phase goes through it. No accidental DoS. |
+| **Output** | Terminal-first (ANSI color). Optional `--json` / `--html` (self-contained dark-theme report). |
+
+---
 
 ---
 
