@@ -122,36 +122,7 @@ cd wphawk
 
 ---
 
-### Linux / macOS
 
-**Option A — Installer (recommended)**
-
-```bash
-git clone https://github.com/yourusername/wphawk.git
-cd wphawk
-chmod +x install.sh
-./install.sh
-# Open a new terminal, then:
-wphawk -u https://target.com
-```
-
----
-
-## Project Structure
-
-```
-wphawk/
-├── wphawk.py            # Main scanner (single file, no deps outside pip)
-├── wordlists/
-│   ├── plugins.txt      # 387 plugin slugs (auto-loaded with --aggressive)
-│   └── themes.txt       # 132 theme slugs  (auto-loaded with --aggressive)
-├── cve/
-│   ├── README.md        # Template format documentation
-│   └── CVE-*.json       # Nuclei-style CVE templates (20+ included)
-└── output/              # Created automatically when --json or --html is used
-```
-
----
 
 ## Usage
 
@@ -175,16 +146,10 @@ python wphawk.py -u https://target.com --aggressive \
   --wordlist-themes  /path/to/themes.txt
 ```
 
-### Full recon — CVE lookup + JS analysis + subdomains + upload crawler
+### Full scan — everything in one flag
 
 ```bash
-python wphawk.py -u https://target.com \
-  --aggressive \
-  --deep-recon \
-  --cve \
-  --crawl-uploads \
-  --scan-backups \
-  --timthumb
+wphawk -u https://target.com --full-scan
 ```
 
 ### CVE template engine (local nuclei-style templates)
