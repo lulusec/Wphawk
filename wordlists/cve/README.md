@@ -1,6 +1,6 @@
 # WPHawk CVE Templates
 
-Nuclei-style JSON/YAML templates — každá šablóna = jeden CVE test.
+Nuclei-style JSON/YAML templates - každá šablóna = jeden CVE test.
 Wphawk ich načíta, porovná s nájdenými pluginmi/témami a spustí HTTP request.
 
 ## Spustenie
