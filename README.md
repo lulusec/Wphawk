@@ -85,45 +85,6 @@ No API keys. No external services required for basic scanning.
 
 ---
 
-## Installation
-
-### Windows
-
-**Option A — Installer (recommended, double-click)**
-
-```
-1. Download or clone the repo
-2. Double-click  install.bat
-3. Open a NEW terminal — run:  wphawk -u https://target.com
-```
-
-The installer automatically:
-- Finds your Python 3.9+ installation
-- Installs `aiohttp`, `aiosqlite`, `pyyaml` via pip
-- Creates a `wphawk.bat` shim in your Python Scripts directory (or `%USERPROFILE%\.local\bin`)
-- Adds the shim directory to your user PATH if needed
-
-**Option B — PowerShell manually**
-
-```powershell
-git clone https://github.com/yourusername/wphawk.git
-cd wphawk
-powershell -ExecutionPolicy Bypass -File install.ps1
-```
-
-**Option C — Run directly without installing**
-
-```powershell
-git clone https://github.com/yourusername/wphawk.git
-cd wphawk
-& "C:\Users\<you>\AppData\Local\Programs\Python\Python313\python.exe" -m pip install aiohttp aiosqlite pyyaml
-& "C:\Users\<you>\AppData\Local\Programs\Python\Python313\python.exe" wphawk.py -u https://target.com
-```
-
-> **Windows note:** If `python` opens the Microsoft Store instead of running Python, this is the App Execution Alias conflict. Use the full path to `python.exe` as shown above, or run `install.ps1` which detects and uses the real executable automatically.
-
----
-
 
 
 ## Usage
