@@ -1,5 +1,5 @@
 # WPHawk
-
+> Asynchronous WordPress penetration testing framework
 Built on `aiohttp` + `asyncio`. Every scan phase runs concurrently, every outbound request is rate-limited, and the entire result lands in your terminal with full ANSI color — no mandatory file writes.
 
 
