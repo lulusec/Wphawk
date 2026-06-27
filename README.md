@@ -43,7 +43,7 @@ powershell -ExecutionPolicy Bypass -File install.ps1
 **Option C — Run directly without installing**
 
 ```powershell
-git clone https://github.com/yourusername/wphawk.git
+git clone https://github.com/lulusec/wphawk.git
 cd wphawk
 & "C:\Users\<you>\AppData\Local\Programs\Python\Python313\python.exe" -m pip install aiohttp aiosqlite pyyaml
 & "C:\Users\<you>\AppData\Local\Programs\Python\Python313\python.exe" wphawk.py -u https://target.com
